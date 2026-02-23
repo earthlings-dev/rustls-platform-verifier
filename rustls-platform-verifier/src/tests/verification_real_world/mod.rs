@@ -42,8 +42,8 @@ use rustls::pki_types::{DnsName, ServerName};
 use rustls::{CertificateError, Error as TlsError};
 
 use super::TestCase;
-use crate::tests::{assert_cert_error_eq, test_provider, verification_time};
 use crate::Verifier;
+use crate::tests::{assert_cert_error_eq, test_provider, verification_time};
 
 // This is the certificate chain presented by one server for
 // `aws.amazon.com` when this test was updated 2025-08-13.

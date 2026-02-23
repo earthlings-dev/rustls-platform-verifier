@@ -1,6 +1,6 @@
 use std::{fs, io::Write, net::TcpStream, sync::Arc};
 
-use rustls::{pki_types::ServerName, ClientConfig, ClientConnection, RootCertStore, Stream};
+use rustls::{ClientConfig, ClientConnection, RootCertStore, Stream, pki_types::ServerName};
 use webpki_root_certs::TLS_SERVER_ROOT_CERTS;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {

@@ -16,9 +16,9 @@ mod android {
     //! root store.
     use crate::tests;
     use jni::{
+        JNIEnv,
         objects::{JClass, JObject, JString},
         sys::jstring,
-        JNIEnv,
     };
     use std::sync::Once;
 

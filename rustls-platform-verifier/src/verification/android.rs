@@ -1,20 +1,20 @@
 use std::sync::Arc;
 
 use jni::{
+    JNIEnv,
     objects::{JObject, JValue},
     strings::JavaStr,
-    JNIEnv,
 };
-use rustls::client::danger::{HandshakeSignatureValid, ServerCertVerifier};
-use rustls::crypto::{verify_tls12_signature, verify_tls13_signature, CryptoProvider};
-use rustls::pki_types;
 use rustls::Error::InvalidCertificate;
+use rustls::client::danger::{HandshakeSignatureValid, ServerCertVerifier};
+use rustls::crypto::{CryptoProvider, verify_tls12_signature, verify_tls13_signature};
+use rustls::pki_types;
 use rustls::{
     CertificateError, DigitallySignedStruct, Error as TlsError, OtherError, SignatureScheme,
 };
 
-use super::{log_server_cert, ALLOWED_EKUS};
-use crate::android::{with_context, CachedClass};
+use super::{ALLOWED_EKUS, log_server_cert};
+use crate::android::{CachedClass, with_context};
 
 static CERT_VERIFIER_CLASS: CachedClass =
     CachedClass::new("org/rustls/platformverifier/CertificateVerifier");

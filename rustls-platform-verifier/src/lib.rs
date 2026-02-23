@@ -8,7 +8,7 @@ use std::sync::Arc;
 use rustls::crypto::CryptoProvider;
 #[cfg(feature = "dbg")]
 use rustls::pki_types::CertificateDer;
-use rustls::{client::WantsClientCert, ClientConfig, ConfigBuilder, WantsVerifier};
+use rustls::{ClientConfig, ConfigBuilder, WantsVerifier, client::WantsClientCert};
 
 mod verification;
 pub use verification::Verifier;

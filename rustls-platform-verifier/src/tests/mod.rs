@@ -9,9 +9,10 @@ mod verification_real_world;
 mod verification_mock;
 
 use rustls::{
-    crypto::CryptoProvider,
-    pki_types, CertificateError,
+    CertificateError,
     Error::{self as TlsError, InvalidCertificate},
+    crypto::CryptoProvider,
+    pki_types,
 };
 
 struct TestCase<'a, E: StdError> {

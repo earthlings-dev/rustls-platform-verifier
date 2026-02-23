@@ -4,3 +4,32 @@ members = [
     "rustls-platform-verifier",
 ]
 resolver = "2"
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.93"
+
+[workspace.dependencies]
+android_logger = "0.15"
+base64 = "0.22"
+core-foundation = "0.10"
+core-foundation-sys = "0.8"
+jni = { version = "0.21", default-features = false }
+log = "0.4"
+once_cell = "1.21"
+rustls = { version = "0.24.0-dev.0", default-features = false }
+rustls-native-certs = "0.8"
+rustls-platform-verifier-android = { path = "android-release-support", version = "0.1.1" }
+rustls-ring = "0.1.0-dev.0"
+security-framework = "3.6.0"
+security-framework-sys = "2.16"
+webpki = { package = "rustls-webpki", version = "=0.104.0-alpha.4", default-features = false }
+webpki-root-certs = "1"
+windows-sys = { version = ">=0.52.0, <0.62.0", default-features = false, features = ["Win32_Foundation", "Win32_Security_Cryptography"] }
+
+[patch.crates-io]
+ring = { path = "../ring-rs" }
+rustls = { path = "../rustls/rustls" }
+rustls-pki-types = { path = "../pki-types" }
+rustls-ring = { path = "../rustls/rustls-ring" }
+rustls-webpki = { path = "../rustls-webpki" }

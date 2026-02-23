@@ -1,12 +1,12 @@
 use std::fmt::Debug;
 use std::sync::Arc;
 
-use rustls::client::danger::{HandshakeSignatureValid, ServerCertVerified, ServerCertVerifier};
 use rustls::client::WebPkiServerVerifier;
+use rustls::client::danger::{HandshakeSignatureValid, ServerCertVerified, ServerCertVerifier};
 use rustls::pki_types;
 use rustls::{
-    crypto::CryptoProvider, CertificateError, DigitallySignedStruct, Error as TlsError, OtherError,
-    SignatureScheme,
+    CertificateError, DigitallySignedStruct, Error as TlsError, OtherError, SignatureScheme,
+    crypto::CryptoProvider,
 };
 
 use super::log_server_cert;
